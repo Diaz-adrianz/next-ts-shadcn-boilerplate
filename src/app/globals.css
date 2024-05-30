@@ -2,32 +2,144 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 20 14.3% 4.1%;
+
+		--card: 0 0% 100%;
+		--card-foreground: 20 14.3% 4.1%;
+
+		--popover: 0 0% 100%;
+		--popover-foreground: 20 14.3% 4.1%;
+
+		--primary: 24 9.8% 10%;
+		--primary-foreground: 60 9.1% 97.8%;
+
+		--secondary: 60 4.8% 95.9%;
+		--secondary-foreground: 24 9.8% 10%;
+
+		--muted: 60 4.8% 95.9%;
+		--muted-foreground: 25 5.3% 44.7%;
+
+		--accent: 60 4.8% 95.9%;
+		--accent-foreground: 24 9.8% 10%;
+
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 60 9.1% 97.8%;
+
+		--border: 20 5.9% 90%;
+		--input: 20 5.9% 90%;
+		--ring: 20 14.3% 4.1%;
+
+		--radius: 0.5rem;
+	}
+
+	.dark {
+		--background: 20 14.3% 4.1%;
+		--foreground: 60 9.1% 97.8%;
+
+		--card: 20 14.3% 4.1%;
+		--card-foreground: 60 9.1% 97.8%;
+
+		--popover: 20 14.3% 4.1%;
+		--popover-foreground: 60 9.1% 97.8%;
+
+		--primary: 60 9.1% 97.8%;
+		--primary-foreground: 24 9.8% 10%;
+
+		--secondary: 12 6.5% 15.1%;
+		--secondary-foreground: 60 9.1% 97.8%;
+
+		--muted: 12 6.5% 15.1%;
+		--muted-foreground: 24 5.4% 63.9%;
+
+		--accent: 12 6.5% 15.1%;
+		--accent-foreground: 60 9.1% 97.8%;
+
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 60 9.1% 97.8%;
+
+		--border: 12 6.5% 15.1%;
+		--input: 12 6.5% 15.1%;
+		--ring: 24 5.7% 82.9%;
+	}
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+
+	h1,
+	.text-h1 {
+		@apply scroll-m-20 text-4xl leading-none font-extrabold tracking-normal lg:text-5xl;
+	}
+
+	h2,
+	.text-h2 {
+		@apply scroll-m-20 text-3xl leading-9 font-semibold first:mt-0;
+	}
+
+	h3,
+	.text-h3 {
+		@apply scroll-m-20 text-2xl leading-8 font-semibold;
+	}
+
+	h4,
+	.text-h4 {
+		@apply scroll-m-20 text-xl font-semibold leading-7;
+	}
+
+	.text-large {
+		@apply text-lg font-semibold leading-7;
+	}
+
+	.text-lead {
+		@apply text-xl font-normal leading-7;
+	}
+
+	p,
+	.text-p {
+		@apply leading-7 text-base font-normal;
+	}
+
+	.text-body {
+		@apply leading-6 text-sm font-normal;
+	}
+
+	.text-subtle {
+		@apply leading-5 text-sm font-normal;
+	}
+
+	.text-small {
+		@apply text-sm font-medium leading-none;
+	}
+
+	.text-detail {
+		@apply text-xs font-medium leading-5;
+	}
+
+	th,
+	.text-th {
+		@apply text-base leading-6 font-bold;
+	}
+
+	blockquote,
+	.text-blockquote {
+		@apply mt-6 border-l-2 pl-6 italic leading-6;
+	}
+
+	ul {
+		@apply my-6 ml-6 list-disc [&>li]:mt-2;
+	}
+
+	code,
+	.text-code {
+		@apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+	}
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}

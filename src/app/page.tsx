@@ -1,113 +1,114 @@
-import Image from "next/image";
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/atoms/card';
+import { Separator } from '@/components/atoms/separator';
+import { Container } from '@/components/molecules';
+import { MainLayout } from '@/components/templates';
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+	const features = [
+		{
+			ic: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
+			name: 'Next 14',
+			desc: 'Powerful React framework, with Typescript.',
+		},
+		{
+			ic: 'https://avatars.githubusercontent.com/u/139895814?s=200&v=4',
+			name: 'Shadcn UI',
+			desc: 'Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.',
+		},
+		{
+			ic: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+			name: 'Tailwind CSS',
+			desc: 'A utility-first CSS framework packed with classes',
+		},
+		{
+			ic: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg',
+			name: 'Redux',
+			desc: 'A JS library for predictable and maintainable global state management.',
+		},
+		{
+			ic: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/axios/axios-plain.svg',
+			name: 'Axios',
+			desc: 'a promise-based HTTP Client for node.js and the browser.',
+		},
+		{
+			name: 'i18n',
+			desc: 'Internationalization-framework written in and for JavaScript',
+		},
+	];
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+	const devFeatures = [
+		{
+			ic: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eslint/eslint-original.svg',
+			name: 'Eslint',
+			desc: 'The pluggable linting utility for JavaScript and JSX',
+		},
+		{
+			ic: '',
+			name: 'Husky',
+			desc: 'Modern native git hooks made easy. Husky enhances your commits and more woof!.',
+		},
+		{
+			ic: '',
+			name: 'Conventional Commit',
+			desc: 'Commitlint checks if your commit messages meet the conventional',
+		},
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+		{
+			ic: '',
+			name: 'Prettier',
+			desc: 'An opinionated code formatter',
+		},
+	];
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+	return (
+		<MainLayout>
+			<Container className="py-8">
+				<h1 className="text-center mb-4">
+					Next + Typescript + Shadcn UI
+					<br /> Project Boilerplate
+				</h1>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+				<p className="text-center text-muted-foreground">Designed and built by Diaz in 2024</p>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+				<Separator className="my-12" />
+
+				<h4 className="mb-3 text-muted-foreground">Features</h4>
+
+				<div className="grid gap-6 grid-cols-2 md:grid-cols-3 mb-6">
+					{features.map((feat, i) => (
+						<Card key={i} className="flex flex-col sm:flex-row items-start">
+							{feat.ic && (
+								<div className="ps-4 pt-5">
+									<img src={feat.ic} alt="" className="min-w-8 max-w-8" />
+								</div>
+							)}
+							<CardHeader className="!mt-0">
+								<CardTitle>{feat.name}</CardTitle>
+								<CardDescription>{feat.desc}</CardDescription>
+							</CardHeader>
+						</Card>
+					))}
+				</div>
+
+				<h4 className="mb-3 text-muted-foreground">Development Features</h4>
+
+				<div className="grid gap-6 grid-cols-2 md:grid-cols-3 mb-6">
+					{devFeatures.map((feat, i) => (
+						<Card key={i} className="flex flex-col sm:flex-row items-start">
+							{feat.ic && (
+								<div className="ps-4 pt-5">
+									<img src={feat.ic} alt="" className="min-w-8 max-w-8" />
+								</div>
+							)}
+							<CardHeader className="!mt-0">
+								<CardTitle>{feat.name}</CardTitle>
+								<CardDescription>{feat.desc}</CardDescription>
+							</CardHeader>
+						</Card>
+					))}
+				</div>
+			</Container>
+		</MainLayout>
+	);
 }
+
