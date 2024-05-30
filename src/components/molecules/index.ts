@@ -1,3 +1,5 @@
 import Container from './Container';
+import ThemeProvider from './Theme/Provider';
+import ThemeToggle from './Theme/Toggle';
 
-export { Container };
+export { Container, ThemeProvider, ThemeToggle };

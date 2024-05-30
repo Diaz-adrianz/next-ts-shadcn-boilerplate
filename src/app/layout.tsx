@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Lobster } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
+import { ThemeProvider } from '@/components/molecules';
 
 // fonts
 const interFont = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -23,7 +24,11 @@ export default function RootLayout({
 			<head>
 				<link rel="icon" href="/images/logo.svg" sizes="any" />
 			</head>
-			<body className="overflow-x-hidden">{children}</body>
+			<body className="overflow-x-hidden">
+				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+					{children}
+				</ThemeProvider>
+			</body>
 		</html>
 	);
 }
