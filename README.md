@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Next TS Shadcn Boilerplate
 
-## Getting Started
+A ready to go boilerplate for starting Web Development project especially with NextJS. Focused on Simplifies the development process, enhancing efficiency and maintainability. Ensures comprehensive coverage of fundamental and common needs. Continuously striving to stay updated.
 
-First, run the development server:
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone < repository link >
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd next-ts-shadcn-boilerplate
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Install dependencies
 
-## Learn More
+```bash
+  npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Prepare dependencies, optional. Currently just to prepare husky.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  npm run prepare
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Start the development server at port 3000
 
-## Deploy on Vercel
+```bash
+  npm run start:dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [next ver. 14](https://nextjs.org)
+- [react ver. 18](https://reactjs.org/)
+- [shadcn ui](https://ui.shadcn.com/)
+- [tailwindcss](https://tailwindcss.com/)
+- [react-redux](https://react-redux.js.org/)
+- [axios](https://axios-http.com/docs/intro)
+- [react-i18next](https://github.com/i18next/react-i18next)
+- [react-lucide](https://lucide.dev/)
+- [eslint](https://eslint.org/)
+- [prettier](https://prettier.io/)
+- [husky](https://typicode.github.io/husky/#/)/[lint-staged](https://github.com/okonet/lint-staged)
+- [commitlint](https://commitlint.js.org/)
+
+## Project Structure
+
+```sh
+public
+├── images       # Assets for images
+src
+├── app             # Next app routing
+├── components      # React components
+  ├── atoms
+  ├── molecules
+  ├── organisms
+  ├── templates
+├── config          # App configuration / constant values
+├── locales         # i18n files
+├── services        # Services for axios, thirdparty, etc
+├── store           # Redux state management
+├── types           # Typescript data type definition
+└── utils           # Utility / helper functions
+```
+
+## Authors
+
+- [@Diaz-Adrianz](https://github.com/Diaz-adrianz)
+
+## Feedback
+
+If you have any feedback, please reach out me at [email](mailto:diazz.developer@gmail.com)
+
+## License
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+

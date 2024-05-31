@@ -3,9 +3,9 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
 		"build": "next build",
-		"start": "next start",
+		"start:dev": "next dev",
+		"start:prod": "next start",
 		"lint": "next lint",
 		"shadcn:add": "npx shadcn-ui@latest add"
 	},
@@ -35,3 +35,4 @@
 		"typescript": "^5"
 	}
 }
+
