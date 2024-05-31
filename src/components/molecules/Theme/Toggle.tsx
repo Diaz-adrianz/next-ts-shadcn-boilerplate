@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/atoms/dropdown-menu';
 import { Button } from '@/components/atoms/button';
+import { Themes } from '@/constant';
 
 const ThemeToggle = () => {
   const { setTheme } = useTheme();
@@ -24,9 +25,11 @@ const ThemeToggle = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme('light')}>Light</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('dark')}>Dark</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('system')}>System</DropdownMenuItem>
+        {Themes.map((t, i) => (
+          <DropdownMenuItem onClick={() => setTheme(t.value as string)}>
+            {t.label.en}
+          </DropdownMenuItem>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );

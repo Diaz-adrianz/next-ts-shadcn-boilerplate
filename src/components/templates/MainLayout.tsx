@@ -4,6 +4,7 @@ import { Button } from '../atoms/button';
 import Image from 'next/image';
 import { ThemeToggle } from '../molecules';
 import { useTheme } from 'next-themes';
+import { Setting } from '@/config';
 
 type Props = {
   children: JSX.Element | JSX.Element[];
@@ -21,14 +22,19 @@ const MainLayout: React.FC<Props> = (props) => {
           width={20}
           height={20}
         />
-        <p className="text-large me-auto">Chocoding</p>
+        <p className="text-large me-auto">{Setting.author.displayName}</p>
 
-        <ThemeToggle />
         <Button asChild variant={'link'} size={'fit'}>
-          <a href="https://github.com/Diaz-adrianz" target="_blank">
+          <a href={Setting.author.github} target="_blank">
             Github
           </a>
         </Button>
+        <Button asChild variant={'link'} size={'fit'}>
+          <a href={Setting.author.insta} target="_blank">
+            Insta
+          </a>
+        </Button>
+        <ThemeToggle />
       </div>
       {props.children}
     </main>
