@@ -13,6 +13,7 @@ import { Countries } from '@/constant';
 import { useAppInfo } from '@/hooks';
 import { Tlang } from '@/types';
 import { getCookie, setCookie } from 'cookies-next';
+import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
 
@@ -39,11 +40,13 @@ const LanguangeMenu = () => {
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 const LanguangeSwitch = React.forwardRef<HTMLButtonElement, Props>(
   ({ className, ...props }, ref) => {
+    const t = useTranslations('Common');
+
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="outline" className={className} ref={ref} {...props}>
-            Languange
+            {t('languange')}
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">

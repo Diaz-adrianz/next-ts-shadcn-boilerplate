@@ -1,3 +1,7 @@
-export function tuple<T extends string[]>(...o: T) {
-  return o;
-}
+const Uarray = {
+  tuple<T extends string[]>(...o: T) {
+    return o;
+  },
+};
+
+export default Uarray;

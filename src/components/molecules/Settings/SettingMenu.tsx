@@ -2,7 +2,6 @@ import { Button } from '@/components/atoms/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuPortal,
   DropdownMenuSub,
   DropdownMenuSubContent,
@@ -13,9 +12,12 @@ import { Languages, Palette, Settings } from 'lucide-react';
 import React from 'react';
 import { ThemeMenu } from './ThemeSwitch';
 import { LanguangeMenu } from './LanguangeSwitch';
+import { useTranslations } from 'next-intl';
 
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 const SettingMenu = React.forwardRef<HTMLButtonElement, Props>(({ className, ...props }, ref) => {
+  const t = useTranslations('Common');
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -27,7 +29,7 @@ const SettingMenu = React.forwardRef<HTMLButtonElement, Props>(({ className, ...
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
             <Palette className="mr-2 h-4 w-4" />
-            <span>Theme</span>
+            <span>{t('theme')}</span>
           </DropdownMenuSubTrigger>
           <DropdownMenuPortal>
             <DropdownMenuSubContent>
@@ -38,7 +40,7 @@ const SettingMenu = React.forwardRef<HTMLButtonElement, Props>(({ className, ...
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
             <Languages className="mr-2 h-4 w-4" />
-            <span>Languange</span>
+            <span>{t('languange')}</span>
           </DropdownMenuSubTrigger>
           <DropdownMenuPortal>
             <DropdownMenuSubContent>

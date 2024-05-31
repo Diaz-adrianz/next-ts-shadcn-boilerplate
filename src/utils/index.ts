@@ -1,4 +1,4 @@
 import { cn } from './cn';
-import { tuple } from './array';
+import Uarray from './array';
 
-export { cn, tuple };
+export { cn, Uarray };

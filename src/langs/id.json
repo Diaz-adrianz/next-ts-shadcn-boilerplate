@@ -1,5 +1,12 @@
 {
+  "Common": {
+    "languange": "Bahasa",
+    "theme": "Tema"
+  },
   "Home": {
-    "title": "Next 14 + Typescript + Shadcn UI Templat proyek"
+    "title": "Next 14 + Typescript + Shadcn UI Templat proyek",
+    "subtitle": "Didesain dan dibuat oleh {name} pada tahun {year}",
+    "features": "Fitur-fitur",
+    "development_features": "Fitur-fitur Pengembangan"
   }
 }

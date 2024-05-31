@@ -1,5 +1,4 @@
 import { Setting } from '@/config';
-import { setCookie } from 'cookies-next';
 import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {

@@ -1,5 +1,12 @@
 {
+  "Common": {
+    "languange": "Languange",
+    "theme": "Theme"
+  },
   "Home": {
-    "title": "Next 14 + Typescript + Shadcn UI Project Boilerplate"
+    "title": "Next 14 + Typescript + Shadcn UI Project Boilerplate",
+    "subtitle": "Designed and built by {name} in {year}",
+    "features": "Features",
+    "development_features": "Development Features"
   }
 }

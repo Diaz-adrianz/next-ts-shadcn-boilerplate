@@ -66,17 +66,15 @@ export default function Home() {
   return (
     <MainLayout>
       <Container className="py-8">
-        <h1 className="mb-4 text-center">
-          {/* Next + Typescript + Shadcn UI
-          <br /> Project Boilerplate */}
-          {t('title')}
-        </h1>
+        <h1 className="mb-4 text-center">{t('title')}</h1>
 
-        <p className="text-center text-muted-foreground">Designed and built by Diaz in 2024</p>
+        <p className="text-center text-muted-foreground">
+          {t('subtitle', { name: 'Diaz', year: '2024' })}
+        </p>
 
         <Separator className="my-12" />
 
-        <h4 className="mb-3 text-muted-foreground">Features</h4>
+        <h4 className="mb-3 text-muted-foreground">{t('features')}</h4>
 
         <div className="mb-6 grid grid-cols-2 gap-6 md:grid-cols-3">
           {features.map((feat, i) => (
@@ -94,7 +92,7 @@ export default function Home() {
           ))}
         </div>
 
-        <h4 className="mb-3 text-muted-foreground">Development Features</h4>
+        <h4 className="mb-3 text-muted-foreground">{t('development_features')}</h4>
 
         <div className="mb-6 grid grid-cols-2 gap-6 md:grid-cols-3">
           {devFeatures.map((feat, i) => (
