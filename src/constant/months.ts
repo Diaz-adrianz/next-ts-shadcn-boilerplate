@@ -1,4 +1,6 @@
-const Months = [
+import { TOption } from '@/types';
+
+const Months: TOption[] = [
   {
     name: {
       id: 'Januari',

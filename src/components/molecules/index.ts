@@ -1,5 +1,4 @@
 import Container from './Container';
-import ThemeProvider from './Theme/Provider';
-import ThemeToggle from './Theme/Toggle';
+import { ThemeProvider, SettingMenu, ThemeSwitch, LanguangeSwitch } from './Settings';
 
-export { Container, ThemeProvider, ThemeToggle };
+export { Container, ThemeProvider, SettingMenu, ThemeSwitch, LanguangeSwitch };

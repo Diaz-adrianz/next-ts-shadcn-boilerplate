@@ -2,9 +2,9 @@
 
 import { Button } from '../atoms/button';
 import Image from 'next/image';
-import { ThemeToggle } from '../molecules';
 import { useTheme } from 'next-themes';
 import { Setting } from '@/config';
+import { LanguangeSwitch, SettingMenu } from '../molecules';
 
 type Props = {
   children: JSX.Element | JSX.Element[];
@@ -34,7 +34,7 @@ const MainLayout: React.FC<Props> = (props) => {
             Insta
           </a>
         </Button>
-        <ThemeToggle />
+        <SettingMenu />
       </div>
       {props.children}
     </main>

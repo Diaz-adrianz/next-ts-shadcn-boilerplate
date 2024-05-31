@@ -1,6 +1,6 @@
-import { TDay } from '@/types';
+import { TOption } from '@/types';
 
-const Days: TDay[] = [
+const Days: TOption[] = [
   {
     name: {
       id: 'Senin',

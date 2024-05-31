@@ -1,3 +1,3 @@
-import { Tlang, TTheme, TMonth, TDay } from './general';
+import { Tlang, TOption, TTheme } from './general';
 
-export type { Tlang, TTheme, TMonth, TDay };
+export type { Tlang, TOption, TTheme };

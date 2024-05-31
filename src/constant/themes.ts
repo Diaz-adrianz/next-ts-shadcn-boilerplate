@@ -1,6 +1,6 @@
-import { TTheme } from '@/types';
+import { TOption } from '@/types';
 
-const Themes: TTheme[] = [
+const Themes: TOption[] = [
   {
     label: {
       id: 'Terang',

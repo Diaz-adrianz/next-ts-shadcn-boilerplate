@@ -14,6 +14,8 @@ export const Setting = {
 
   defaultLanguage: 'id',
   languageSupport: ['en', 'id'] as const,
+  defaultTheme: 'system',
+  themeSupport: ['light', 'dark', 'system'] as const,
 
   numberPrecision: 2,
   moneyPrecision: 0,
