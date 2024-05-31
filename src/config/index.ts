@@ -1,3 +1,2 @@
-import { Setting } from './setting';
-
-export { Setting };
+export * from './redux';
+export * from './setting';

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { Inter, Lobster } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import './globals.css';
-import { ThemeProvider } from '@/components/molecules';
+import { ReduxProvider, ThemeProvider } from '@/components/molecules';
 import { getLocale, getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
 
@@ -36,7 +36,7 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <ReduxProvider>{children}</ReduxProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
