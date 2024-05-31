@@ -80,4 +80,3 @@ If you have any feedback, please reach out me at [email](mailto:diazz.developer@
 ## License
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-

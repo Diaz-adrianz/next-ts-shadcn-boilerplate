@@ -7,29 +7,33 @@ import { ThemeProvider } from '@/components/molecules';
 // fonts
 const interFont = Inter({ subsets: ['latin'], variable: '--font-inter' });
 export const metadata: Metadata = {
-	title: {
-		template: '%s | by Chocoding.in',
-		default: 'Chocoding.in',
-	},
-	description: 'A web by Chocoding.in',
+  title: {
+    template: '%s | by Chocoding.in',
+    default: 'Chocoding.in',
+  },
+  description: 'A web by Chocoding.in',
 };
 
 export default function RootLayout({
-	children,
+  children,
 }: Readonly<{
-	children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-	return (
-		<html lang="en" className={cn(interFont.variable, 'font-inter')}>
-			<head>
-				<link rel="icon" href="/images/logo.svg" sizes="any" />
-			</head>
-			<body className="overflow-x-hidden">
-				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-					{children}
-				</ThemeProvider>
-			</body>
-		</html>
-	);
+  return (
+    <html lang="en" className={cn(interFont.variable, 'font-inter')}>
+      <head>
+        <link rel="icon" href="/images/logo.svg" sizes="any" />
+      </head>
+      <body className="overflow-x-hidden">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+  );
 }
-
