@@ -9,8 +9,8 @@ import {
   DropdownMenuTrigger,
 } from '@/components/atoms/dropdown-menu';
 import React from 'react';
-import { ThemeMenu } from './ThemeSwitch';
-import { LanguangeMenu } from './LanguangeSwitch';
+import { ThemeMenu } from './theme-switcher';
+import { LanguangeMenu } from './languange-switcher';
 import { useTranslations } from 'next-intl';
 import { Icon } from '@/components/atoms';
 
