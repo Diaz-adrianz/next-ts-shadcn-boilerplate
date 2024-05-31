@@ -2,8 +2,11 @@ import { Card, CardDescription, CardHeader, CardTitle } from '@/components/atoms
 import { Separator } from '@/components/atoms/separator';
 import { Container } from '@/components/molecules';
 import { MainLayout } from '@/components/templates';
+import { useTranslations } from 'next-intl';
 
 export default function Home() {
+  const t = useTranslations('Home');
+
   const features = [
     {
       ic: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
@@ -64,8 +67,9 @@ export default function Home() {
     <MainLayout>
       <Container className="py-8">
         <h1 className="mb-4 text-center">
-          Next + Typescript + Shadcn UI
-          <br /> Project Boilerplate
+          {/* Next + Typescript + Shadcn UI
+          <br /> Project Boilerplate */}
+          {t('title')}
         </h1>
 
         <p className="text-center text-muted-foreground">Designed and built by Diaz in 2024</p>

@@ -3,6 +3,8 @@ import { Inter, Lobster } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/utils';
 import { ThemeProvider } from '@/components/molecules';
+import { getLocale, getMessages } from 'next-intl/server';
+import { NextIntlClientProvider } from 'next-intl';
 
 // fonts
 const interFont = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -14,25 +16,30 @@ export const metadata: Metadata = {
   description: 'A web by Chocoding.in',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const langs = await getMessages();
+
   return (
-    <html lang="en" className={cn(interFont.variable, 'font-inter')}>
+    <html lang={locale} className={cn(interFont.variable, 'font-inter')}>
       <head>
         <link rel="icon" href="/images/logo.svg" sizes="any" />
       </head>
       <body className="overflow-x-hidden">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <NextIntlClientProvider messages={langs}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

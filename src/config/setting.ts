@@ -14,16 +14,6 @@ export const Setting = {
 
   defaultLanguage: 'id',
   languageSupport: ['en', 'id'] as const,
-  resourcesLanguage: {
-    id: {
-      //   translation: require('../lang/id.json'),
-      label: 'Indonesia',
-    },
-    en: {
-      //   translation: require('../lang/en.json'),
-      label: 'English',
-    },
-  },
 
   numberPrecision: 2,
   moneyPrecision: 0,
