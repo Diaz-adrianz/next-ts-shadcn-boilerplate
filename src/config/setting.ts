@@ -19,6 +19,7 @@ export const Setting = {
 
   numberPrecision: 2,
   moneyPrecision: 0,
+  defaultIconSize: 16,
 
   author: {
     name: 'chocoding.in',

@@ -8,11 +8,11 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/atoms/dropdown-menu';
-import { Languages, Palette, Settings } from 'lucide-react';
 import React from 'react';
 import { ThemeMenu } from './ThemeSwitch';
 import { LanguangeMenu } from './LanguangeSwitch';
 import { useTranslations } from 'next-intl';
+import { Icon } from '@/components/atoms';
 
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 const SettingMenu = React.forwardRef<HTMLButtonElement, Props>(({ className, ...props }, ref) => {
@@ -22,13 +22,13 @@ const SettingMenu = React.forwardRef<HTMLButtonElement, Props>(({ className, ...
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size={'icon'} className={className} ref={ref} {...props}>
-          <Settings size={16} />
+          <Icon name="Settings" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
-            <Palette className="mr-2 h-4 w-4" />
+            <Icon name="Palette" className="mr-2" size={13} />
             <span>{t('theme')}</span>
           </DropdownMenuSubTrigger>
           <DropdownMenuPortal>
@@ -39,7 +39,7 @@ const SettingMenu = React.forwardRef<HTMLButtonElement, Props>(({ className, ...
         </DropdownMenuSub>
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
-            <Languages className="mr-2 h-4 w-4" />
+            <Icon name="Languages" className="mr-2" size={13} />
             <span>{t('languange')}</span>
           </DropdownMenuSubTrigger>
           <DropdownMenuPortal>
