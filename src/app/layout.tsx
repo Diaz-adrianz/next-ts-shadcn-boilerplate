@@ -4,6 +4,7 @@ import './globals.css';
 import { ReduxProvider, ThemeProvider } from '@/components/molecules';
 import { getLocale, getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
+import { Toaster } from '@/components/atoms/toaster';
 
 // fonts
 const interFont = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -36,7 +37,10 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <ReduxProvider>{children}</ReduxProvider>
+            <ReduxProvider>
+              {children}
+              <Toaster />
+            </ReduxProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

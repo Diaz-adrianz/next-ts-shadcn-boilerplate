@@ -1,7 +1,13 @@
+'use client';
+
+import { Button } from '@/components/atoms';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/atoms/card';
 import { Separator } from '@/components/atoms/separator';
 import { Container } from '@/components/molecules';
 import { MainLayout } from '@/components/templates';
+import { Connections } from '@/config';
+import { axiosApi } from '@/lib';
+import { TmainApiResponse } from '@/types/api';
 import { useTranslations } from 'next-intl';
 
 export default function Home() {
@@ -63,14 +69,38 @@ export default function Home() {
     },
   ];
 
+  const testGet = () => {
+    type data = {
+      id: number;
+      name: string;
+    };
+
+    axiosApi.get<TmainApiResponse<data[]>>('/post/category').then((res) => {
+      res.data.data.forEach((dat) => console.log(dat.name));
+    });
+  };
+
+  const testPost = () => {};
+
   return (
     <MainLayout>
       <Container className="py-8">
         <h1 className="mb-4 text-center">{t('title')}</h1>
 
-        <p className="text-center text-muted-foreground">
+        <p className="mb-8 text-center text-muted-foreground">
           {t('subtitle', { name: 'Diaz', year: '2024' })}
         </p>
+
+        <div className="flex justify-center gap-3">
+          <Button variant={'secondary'} onClick={testGet}>
+            Get request
+          </Button>
+          <Button variant={'secondary'} onClick={testPost}>
+            Post request
+          </Button>
+          <Button variant={'secondary'}>Increment</Button>
+          <Button variant={'secondary'}>Decrement</Button>
+        </div>
 
         <Separator className="my-12" />
 

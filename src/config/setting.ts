@@ -8,10 +8,6 @@ export const Setting = {
     date: '31-May-2024',
   },
 
-  api: {
-    default: process.env.NEXT_API_DEFAULT_URL,
-  },
-
   defaultLanguage: 'id',
   languageSupport: ['en', 'id'] as const,
   defaultTheme: 'system',
