@@ -17,6 +17,9 @@ export const Setting = {
   moneyPrecision: 0,
   defaultIconSize: 16,
 
+  progressBarColor: '#fffd00',
+  progressBarThickness: '4px',
+
   author: {
     name: 'chocoding.in',
     displayName: 'Chocoding',
