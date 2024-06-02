@@ -1,17 +1,21 @@
 'use client';
 
 import { Button } from '@/components/atoms';
-import { Card, CardDescription, CardHeader, CardTitle } from '@/components/atoms/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/atoms/card';
 import { Separator } from '@/components/atoms/separator';
 import { Container } from '@/components/molecules';
 import { MainLayout } from '@/components/templates';
-import { Connections } from '@/config';
+import { useAppDispatch, useAppSelector } from '@/hooks';
 import { axiosApi } from '@/lib';
+import { addRequestCount, getPost, postPost, subRequestCount } from '@/store/common';
 import { TmainApiResponse } from '@/types/api';
+import { unwrapResult } from '@reduxjs/toolkit';
 import { useTranslations } from 'next-intl';
 
 export default function Home() {
-  const t = useTranslations('Home');
+  const t = useTranslations('Home'),
+    dispatch = useAppDispatch(),
+    { request_count, post } = useAppSelector((s) => s.common);
 
   const features = [
     {
@@ -69,18 +73,34 @@ export default function Home() {
     },
   ];
 
-  const testGet = () => {
-    type data = {
-      id: number;
-      name: string;
-    };
+  const testGet = async () => {
+    const action = await dispatch(getPost()),
+      data = unwrapResult(action);
 
-    axiosApi.get<TmainApiResponse<data[]>>('/post/category').then((res) => {
-      res.data.data.forEach((dat) => console.log(dat.name));
-    });
+    if (data == null) return;
+    console.log('==== You perform a get request!');
+    console.log('id     : ', data.id);
+    console.log('userId : ', data.userId);
+    console.log('title  : ', data.title);
+    console.log('body   : ', data.body);
   };
 
-  const testPost = () => {};
+  const testPost = async () => {
+    const action = await dispatch(
+        postPost({
+          userId: 1,
+          title: 'This is awesome',
+          body: 'Next 14 + Typescript + Shadcn by chocoding.in',
+        }),
+      ),
+      data = unwrapResult(action);
+
+    console.log('==== You perform a post request!');
+    console.log('id     : ', data.id);
+    console.log('userId : ', data.userId);
+    console.log('title  : ', data.title);
+    console.log('body   : ', data.body);
+  };
 
   return (
     <MainLayout>
@@ -91,16 +111,38 @@ export default function Home() {
           {t('subtitle', { name: 'Diaz', year: '2024' })}
         </p>
 
-        <div className="flex justify-center gap-3">
+        <p className="mb-3 text-center">Request count: {request_count}</p>
+        <div className="mb-3 flex justify-center gap-3">
           <Button variant={'secondary'} onClick={testGet}>
             Get request
           </Button>
           <Button variant={'secondary'} onClick={testPost}>
             Post request
           </Button>
-          <Button variant={'secondary'}>Increment</Button>
-          <Button variant={'secondary'}>Decrement</Button>
+          <Button variant={'secondary'} onClick={() => dispatch(addRequestCount())}>
+            Increment
+          </Button>
+          <Button variant={'secondary'} onClick={() => dispatch(subRequestCount())}>
+            Decrement
+          </Button>
         </div>
+
+        <>
+          {post && (
+            <Card className="mx-auto w-fit max-w-lg">
+              <CardHeader>
+                <h5 className="text-large">{post.title}</h5>
+                <p className="text-body">{post.body}</p>
+                <p className="text-detail text-muted-foreground">
+                  API from{' '}
+                  <a href="https://jsonplaceholder.typicode.com">
+                    https://jsonplaceholder.typicode.com/guide/
+                  </a>
+                </p>
+              </CardHeader>
+            </Card>
+          )}
+        </>
 
         <Separator className="my-12" />
 

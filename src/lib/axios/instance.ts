@@ -1,9 +1,10 @@
-import { Connections, Setting } from '@/config';
+import { Setting } from '@/config';
 import axios, { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 import { Storage } from '../storage';
 import { TuserData } from '@/types';
 import { refreshToken } from './refresh-token';
 import { toast } from '@/components/atoms/use-toast';
+import { Connections } from '@/config/connections';
 
 const axiosApi: AxiosInstance = axios.create({
   baseURL: Connections.main,
