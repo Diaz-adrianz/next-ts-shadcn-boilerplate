@@ -36,11 +36,12 @@ Start the development server at port 3000
 
 ## Tech Stack
 
-- [next ver. 14](https://nextjs.org)
-- [react ver. 18](https://reactjs.org/)
+- [next 14](https://nextjs.org)
+- [react 18](https://reactjs.org/)
 - [shadcn ui](https://ui.shadcn.com/)
 - [tailwindcss](https://tailwindcss.com/)
 - [react-redux](https://react-redux.js.org/)
+- [redux-toolkit](https://redux-toolkit.js.org)
 - [axios](https://axios-http.com/docs/intro)
 - [react-i18next](https://github.com/i18next/react-i18next)
 - [react-lucide](https://lucide.dev/)
@@ -53,20 +54,27 @@ Start the development server at port 3000
 
 ```sh
 public
-├── images       # Assets for images
+├── fonts             # Assets for custom fonts
+├── images            # Assets for images
 src
-├── app             # Next app routing
-├── components      # React components
-  ├── atoms
+├── app               # Next app routing
+├── components
+  ├── atoms           # Shadcn components here
   ├── molecules
   ├── organisms
-  ├── templates
-├── config          # App configuration / constant values
-├── locales         # i18n files
-├── services        # Services for axios, thirdparty, etc
-├── store           # Redux state management
-├── types           # Typescript data type definition
-└── utils           # Utility / helper functions
+  └── templates       # layout components
+├── config            # App configuration and setting (redux, i18n, etc.)
+├── constant          # Constant values (e.g for dropdown data)
+├── hooks             # React hooks
+├── langs             # languange translation data
+├── lib               # Services for axios, browser storage, thirdparty, etc.
+├── store             # Redux state management
+  └── [feature name]
+    ├── index.ts      # Redux feature's slice
+    └── extras.ts     # Redux toolkit query for API fetching
+├── types             # Typescript data type definition
+├── utils             # Utility / helper functions
+└── middleware.ts
 ```
 
 ## Authors
