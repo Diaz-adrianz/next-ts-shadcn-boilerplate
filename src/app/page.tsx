@@ -1,14 +1,12 @@
 'use client';
 
 import { Button } from '@/components/atoms';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/atoms/card';
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/atoms/card';
 import { Separator } from '@/components/atoms/separator';
 import { Container } from '@/components/molecules';
 import { MainLayout } from '@/components/templates';
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import { axiosApi } from '@/lib';
 import { addRequestCount, getPost, postPost, subRequestCount } from '@/store/common';
-import { TmainApiResponse } from '@/types/api';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';

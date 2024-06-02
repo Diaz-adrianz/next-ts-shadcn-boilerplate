@@ -53,4 +53,6 @@ const SettingMenu = React.forwardRef<HTMLButtonElement, Props>(({ className, ...
   );
 });
 
+SettingMenu.displayName = 'SettingMenu';
+
 export default SettingMenu;

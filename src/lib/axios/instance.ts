@@ -1,5 +1,5 @@
 import { Setting } from '@/config';
-import axios, { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from 'axios';
+import axios, { AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 import { Storage } from '../storage';
 import { TuserData } from '@/types';
 import { refreshToken } from './refresh-token';
@@ -30,7 +30,6 @@ axiosApi.interceptors.request.use(
     } else {
       conf.onUploadProgress = ({ total, loaded }) => {
         const percentage = +((loaded * 100) / (total ?? 0) / 100).toFixed(2);
-        console.log(percentage);
         nProgress.set(percentage == Infinity ? 1 : percentage);
       };
     }

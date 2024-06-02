@@ -12,7 +12,7 @@ import { Setting } from '@/config';
 import { Themes } from '@/constant';
 import { Tlang, TTheme } from '@/types';
 import { useTheme } from 'next-themes';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const ThemeMenu = () => {
   const lang: Tlang = (document.querySelector('html')?.lang ?? 'en') as Tlang;
@@ -49,5 +49,7 @@ const ThemeSwitch = React.forwardRef<HTMLButtonElement, Props>(({ className, ...
     </DropdownMenu>
   );
 });
+
+ThemeSwitch.displayName = 'ThemeSwitch';
 
 export { ThemeSwitch, ThemeMenu };

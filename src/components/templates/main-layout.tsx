@@ -4,7 +4,7 @@ import { Button } from '../atoms/button';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { Setting } from '@/config';
-import { LanguangeSwitch, SettingMenu } from '../molecules';
+import { SettingMenu } from '../molecules';
 
 type Props = {
   children: JSX.Element | JSX.Element[];

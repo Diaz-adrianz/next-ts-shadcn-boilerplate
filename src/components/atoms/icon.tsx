@@ -6,7 +6,7 @@ interface LucideIconMap {
   [key: string]: React.ComponentType<{ size: number }>;
 }
 
-/* @ts-ignore */
+/* @ts-expect-error: this is works */
 const icons: LucideIconMap = lucideIcons;
 
 interface Props {

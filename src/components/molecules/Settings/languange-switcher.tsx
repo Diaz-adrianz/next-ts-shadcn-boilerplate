@@ -12,10 +12,9 @@ import { Setting } from '@/config';
 import { Countries } from '@/constant';
 import { useAppInfo } from '@/hooks';
 import { Tlang } from '@/types';
-import { getCookie, setCookie } from 'cookies-next';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const LanguangeMenu = () => {
   const router = useRouter();
@@ -56,5 +55,7 @@ const LanguangeSwitch = React.forwardRef<HTMLButtonElement, Props>(
     );
   },
 );
+
+LanguangeSwitch.displayName = 'LanguangeSwitch';
 
 export { LanguangeSwitch, LanguangeMenu };

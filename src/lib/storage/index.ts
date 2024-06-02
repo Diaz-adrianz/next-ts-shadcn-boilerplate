@@ -12,7 +12,9 @@ const Storage = {
     if (data) {
       try {
         data = JSON.parse(data);
-      } catch {}
+      } catch {
+        null;
+      }
     }
     return data ? (data as T) : fallback ?? null;
   },
