@@ -5,6 +5,7 @@ import { TuserData } from '@/types';
 import { refreshToken } from './refresh-token';
 import { toast } from '@/components/atoms/use-toast';
 import { Connections } from '@/config/connections';
+import nProgress from 'nprogress';
 
 const axiosApi: AxiosInstance = axios.create({
   baseURL: Connections.main,
@@ -20,6 +21,20 @@ axiosApi.interceptors.request.use(
 
     conf.headers['x-lang'] = Storage.get<string>('cookie', 'lang', Setting.defaultLanguage);
 
+    nProgress.start();
+    if (conf.method == 'get') {
+      conf.onDownloadProgress = ({ total, loaded }) => {
+        const percentage = +((loaded * 100) / (total ?? 0) / 100).toFixed(2);
+        nProgress.set(percentage == Infinity ? 1 : percentage);
+      };
+    } else {
+      conf.onUploadProgress = ({ total, loaded }) => {
+        const percentage = +((loaded * 100) / (total ?? 0) / 100).toFixed(2);
+        console.log(percentage);
+        nProgress.set(percentage == Infinity ? 1 : percentage);
+      };
+    }
+
     return conf;
   },
   (error) => {
@@ -28,8 +43,13 @@ axiosApi.interceptors.request.use(
 );
 
 axiosApi.interceptors.response.use(
-  (res) => res,
+  (res) => {
+    nProgress.done();
+    return res;
+  },
   async (err) => {
+    nProgress.done();
+
     const { response, code } = err;
 
     if (code && code == 'ERR_NETWORK') {

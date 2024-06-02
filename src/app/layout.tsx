@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { ReduxProvider, ThemeProvider } from '@/components/molecules';
+import { AppProgressBarProvider, ReduxProvider, ThemeProvider } from '@/components/molecules';
 import { getLocale, getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
 import { Toaster } from '@/components/atoms/toaster';
@@ -38,8 +38,10 @@ export default async function RootLayout({
             disableTransitionOnChange
           >
             <ReduxProvider>
-              {children}
-              <Toaster />
+              <AppProgressBarProvider>
+                {children}
+                <Toaster />
+              </AppProgressBarProvider>
             </ReduxProvider>
           </ThemeProvider>
         </NextIntlClientProvider>

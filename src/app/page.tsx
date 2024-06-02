@@ -11,6 +11,7 @@ import { addRequestCount, getPost, postPost, subRequestCount } from '@/store/com
 import { TmainApiResponse } from '@/types/api';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 export default function Home() {
   const t = useTranslations('Home'),
@@ -124,6 +125,9 @@ export default function Home() {
           </Button>
           <Button variant={'secondary'} onClick={() => dispatch(subRequestCount())}>
             Decrement
+          </Button>
+          <Button variant={'secondary'} asChild>
+            <Link href={'/about'}>About page</Link>
           </Button>
         </div>
 
