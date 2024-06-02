@@ -1,6 +1,6 @@
-import { TOption } from '@/types';
+import { Toption } from '@/types';
 
-const Countries: TOption[] = [
+const Countries: Toption[] = [
   {
     label: {
       id: 'Bahasa',
