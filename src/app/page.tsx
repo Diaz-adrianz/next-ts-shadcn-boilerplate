@@ -25,7 +25,7 @@ export default function Home() {
     {
       ic: 'https://avatars.githubusercontent.com/u/139895814?s=200&v=4',
       name: 'Shadcn UI',
-      desc: 'Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.',
+      desc: 'Beautifully designed components that you can copy and paste into your apps.',
     },
     {
       ic: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
@@ -36,6 +36,11 @@ export default function Home() {
       ic: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg',
       name: 'Redux',
       desc: 'A JS library for predictable and maintainable global state management.',
+    },
+    {
+      ic: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg',
+      name: 'RTK Query',
+      desc: 'Powerful data fetching and caching tool.',
     },
     {
       ic: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/axios/axios-plain.svg',
@@ -106,12 +111,16 @@ export default function Home() {
       <Container className="py-8">
         <h1 className="mb-4 text-center">{t('title')}</h1>
 
-        <p className="mb-8 text-center text-muted-foreground">
+        <p className="text-center text-muted-foreground">
           {t('subtitle', { name: 'Diaz', year: '2024' })}
         </p>
+      </Container>
+
+      <Container>
+        <Separator className="mb-12" />
 
         <p className="mb-3 text-center">Request count: {request_count}</p>
-        <div className="mb-3 flex justify-center gap-3">
+        <div className="mb-3 flex flex-wrap justify-center gap-3">
           <Button variant={'secondary'} onClick={testGet}>
             Get request
           </Button>
@@ -145,9 +154,9 @@ export default function Home() {
             </Card>
           )}
         </>
+      </Container>
 
-        <Separator className="my-12" />
-
+      <Container>
         <h4 className="mb-3 text-muted-foreground">{t('features')}</h4>
 
         <div className="mb-6 grid grid-cols-2 gap-6 md:grid-cols-3">
@@ -165,7 +174,9 @@ export default function Home() {
             </Card>
           ))}
         </div>
+      </Container>
 
+      <Container>
         <h4 className="mb-3 text-muted-foreground">{t('development_features')}</h4>
 
         <div className="mb-6 grid grid-cols-2 gap-6 md:grid-cols-3">
